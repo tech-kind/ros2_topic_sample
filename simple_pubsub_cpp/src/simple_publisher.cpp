@@ -5,8 +5,14 @@ SimplePublisher::SimplePublisher(const rclcpp::NodeOptions & options)
 {
   num_ = 0;
 
+  double period = this->declare_parameter<double>("period", 1);
+  int depth = this->declare_parameter<int>("qos_depth", 5);
+
+  RCLCPP_INFO(this->get_logger(), "param period=%lf", period);
+  RCLCPP_INFO(this->get_logger(), "param qos_depth=%d", depth);
+
   // QoSの設定
-  rclcpp::QoS qos_param(10);
+  rclcpp::QoS qos_param(depth);
   qos_param.reliability(RMW_QOS_POLICY_RELIABILITY_BEST_EFFORT);
   qos_param.durability(RMW_QOS_POLICY_DURABILITY_TRANSIENT_LOCAL);
   qos_param.liveliness(RMW_QOS_POLICY_LIVELINESS_AUTOMATIC);
@@ -16,10 +22,10 @@ SimplePublisher::SimplePublisher(const rclcpp::NodeOptions & options)
 
   timer_ =
     this->create_wall_timer(
-    rclcpp::duration<double>(1),
+    rclcpp::duration<double>(period),
     std::bind(&SimplePublisher::onTimerCallback, this));
 
-  RCLCPP_INFO(this->get_logger(), "[SimplePublisher] start!");
+  RCLCPP_INFO(this->get_logger(), "publisher start!");
 }
 
 SimplePublisher::~SimplePublisher()
@@ -33,7 +39,7 @@ void SimplePublisher::onTimerCallback()
   msg.num = num_;
   num_++;
 
-  RCLCPP_INFO(this->get_logger(), "[SimplePublisher] publish num=%d", msg.num);
+  RCLCPP_INFO(this->get_logger(), "publish num=%d", msg.num);
 
   pub_->publish(msg);
 }

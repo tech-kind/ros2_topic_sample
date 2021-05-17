@@ -34,4 +34,7 @@ install(TARGETS
   DESTINATION lib/${PROJECT_NAME}
 )
 
-ament_package()
+ament_auto_package(INSTALL_TO_SHARE
+  config
+  launch
+)
