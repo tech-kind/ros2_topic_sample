@@ -7,15 +7,15 @@
 class SimplePublisher : public rclcpp::Node
 {
 public:
-    SimplePublisher(const rclcpp::NodeOptions &options);
-    ~SimplePublisher();
+  SimplePublisher(const rclcpp::NodeOptions & options);
+  ~SimplePublisher();
 
 private:
-    void onTimerCallback();
+  void onTimerCallback();
 
-    int32_t num_;
-    rclcpp::Publisher<sample_msgs::msg::SimpleMsg>::SharedPtr pub_;
-    rclcpp::TimerBase::SharedPtr timer_;
+  int32_t num_;
+  rclcpp::Publisher<sample_msgs::msg::SimpleMsg>::SharedPtr pub_;
+  rclcpp::TimerBase::SharedPtr timer_;
 };
 
 #endif // SIMPLE_PUBLISHER_HPP_

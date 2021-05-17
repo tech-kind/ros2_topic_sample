@@ -7,14 +7,14 @@
 class SimpleSubscription : public rclcpp::Node
 {
 public:
-    SimpleSubscription(const rclcpp::NodeOptions &options);
-    ~SimpleSubscription();
+  SimpleSubscription(const rclcpp::NodeOptions & options);
+  ~SimpleSubscription();
 
 private:
-    void onMessageCallback(const sample_msgs::msg::SimpleMsg::ConstSharedPtr msg);
+  void onMessageCallback(const sample_msgs::msg::SimpleMsg::ConstSharedPtr msg);
 
-    int32_t num_;
-    rclcpp::Subscription<sample_msgs::msg::SimpleMsg>::SharedPtr sub_;
+  int32_t num_;
+  rclcpp::Subscription<sample_msgs::msg::SimpleMsg>::SharedPtr sub_;
 };
 
 #endif // SIMPLE_SUBSCRIPTION_HPP_
