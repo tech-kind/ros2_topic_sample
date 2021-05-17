@@ -1,4 +1,6 @@
 from setuptools import setup
+import os
+from glob import glob
 
 package_name = 'simple_pubsub_python'
 
@@ -10,6 +12,10 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
+        # Describe launch files
+        (os.path.join('share', package_name), glob('launch/*.launch.py')),
+        # Desctibe config files
+        (os.path.join('share', package_name, 'config'), glob('config/*.param.yaml')),
     ],
     install_requires=['setuptools'],
     zip_safe=True,

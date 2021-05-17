@@ -1,0 +1,8 @@
+simple_publisher_node1:
+  ros__parameters:
+    period: 0.5
+    qos_depth: 10
+
+simple_subscription_node1:
+  ros__parameters:
+    qos_depth: 10
