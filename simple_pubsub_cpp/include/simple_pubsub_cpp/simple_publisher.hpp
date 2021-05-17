@@ -1,5 +1,5 @@
-#ifndef SIMPLE_PUBLISHER_HPP_
-#define SIMPLE_PUBLISHER_HPP_
+#ifndef SIMPLE_PUBSUB_CPP__SIMPLE_PUBLISHER_HPP_
+#define SIMPLE_PUBSUB_CPP__SIMPLE_PUBLISHER_HPP_
 
 #include "rclcpp/rclcpp.hpp"
 #include "sample_msgs/msg/simple_msg.hpp"
@@ -7,7 +7,7 @@
 class SimplePublisher : public rclcpp::Node
 {
 public:
-  SimplePublisher(const rclcpp::NodeOptions & options);
+  explicit SimplePublisher(const rclcpp::NodeOptions & options);
   ~SimplePublisher();
 
 private:
@@ -18,4 +18,4 @@ private:
   rclcpp::TimerBase::SharedPtr timer_;
 };
 
-#endif // SIMPLE_PUBLISHER_HPP_
+#endif  // SIMPLE_PUBSUB_CPP__SIMPLE_PUBLISHER_HPP_

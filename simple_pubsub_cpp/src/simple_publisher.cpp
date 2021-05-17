@@ -24,7 +24,6 @@ SimplePublisher::SimplePublisher(const rclcpp::NodeOptions & options)
 
 SimplePublisher::~SimplePublisher()
 {
-
 }
 
 void SimplePublisher::onTimerCallback()

@@ -1,5 +1,5 @@
-#ifndef SIMPLE_SUBSCRIPTION_HPP_
-#define SIMPLE_SUBSCRIPTION_HPP_
+#ifndef SIMPLE_PUBSUB_CPP__SIMPLE_SUBSCRIPTION_HPP_
+#define SIMPLE_PUBSUB_CPP__SIMPLE_SUBSCRIPTION_HPP_
 
 #include "rclcpp/rclcpp.hpp"
 #include "sample_msgs/msg/simple_msg.hpp"
@@ -7,7 +7,7 @@
 class SimpleSubscription : public rclcpp::Node
 {
 public:
-  SimpleSubscription(const rclcpp::NodeOptions & options);
+  explicit SimpleSubscription(const rclcpp::NodeOptions & options);
   ~SimpleSubscription();
 
 private:
@@ -17,4 +17,4 @@ private:
   rclcpp::Subscription<sample_msgs::msg::SimpleMsg>::SharedPtr sub_;
 };
 
-#endif // SIMPLE_SUBSCRIPTION_HPP_
+#endif  // SIMPLE_PUBSUB_CPP__SIMPLE_SUBSCRIPTION_HPP_

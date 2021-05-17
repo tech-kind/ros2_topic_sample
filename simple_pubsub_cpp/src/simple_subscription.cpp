@@ -18,7 +18,6 @@ SimpleSubscription::SimpleSubscription(const rclcpp::NodeOptions & options)
 
 SimpleSubscription::~SimpleSubscription()
 {
-
 }
 
 void SimpleSubscription::onMessageCallback(const sample_msgs::msg::SimpleMsg::ConstSharedPtr msg)
